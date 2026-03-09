@@ -129,7 +129,7 @@ export default function ServicesFaqSection() {
               Questions about
               <br />
               our{" "}
-              <span className="bg-gradient-to-r from-cyan-500 via-teal-500 to-sky-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-800 via-blue-500 to-blue-500 bg-clip-text text-transparent">
                 Services
               </span>
             </h2>
@@ -141,7 +141,7 @@ export default function ServicesFaqSection() {
 <div className="mt-8 flex flex-wrap gap-3">
   <Link
     href="/contact"
-    className="inline-flex rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 px-6 py-3 text-[15px] font-bold text-white shadow-[0_10px_30px_rgba(20,184,166,0.25)] transition-transform duration-300 hover:scale-[1.02]"
+    className="inline-flex rounded-full bg-gradient-to-r from-blue-700 to-blue-500 px-6 py-3 text-[15px] font-bold text-white shadow-[0_10px_30px_rgba(20,184,166,0.25)] transition-transform duration-300 hover:scale-[1.02]"
   >
     Get a recommendation
   </Link>

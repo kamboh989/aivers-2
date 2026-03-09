@@ -47,13 +47,13 @@ function CurvedArrow() {
           orient="auto"
           markerUnits="strokeWidth"
         >
-          <path d="M0,0 L8,4 L0,8" fill="none" stroke="#9ACD32" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M0,0 L8,4 L0,8" fill="none" stroke="#5247df" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </marker>
       </defs>
 
       <path
         d="M6 30 Q 52 2 100 24"
-        stroke="#9ACD32"
+        stroke="#6248d8"
         strokeWidth="2.5"
         strokeLinecap="round"
         fill="none"
@@ -122,7 +122,7 @@ export default function ProcessSection() {
                 </div>
 
                 {index !== processSteps.length - 1 && (
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-lime-100 text-lime-600">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600">
                     <MoveRight className="h-5 w-5" />
                   </span>
                 )}
