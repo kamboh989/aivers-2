@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   Menu,
@@ -66,6 +67,8 @@ const companyLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDesktopMenu, setOpenDesktopMenu] = useState<
     null | "solutions" | "company"
@@ -88,9 +91,25 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    setOpenDesktopMenu(null);
+    setOpenMobileMenu(null);
+    setMobileOpen(false);
+  }, [pathname]);
+
   const closeMobileMenu = () => {
     setMobileOpen(false);
     setOpenMobileMenu(null);
+  };
+
+  const closeDesktopMenu = () => {
+    setOpenDesktopMenu(null);
+  };
+
+  const closeAllMenus = () => {
+    setOpenDesktopMenu(null);
+    setOpenMobileMenu(null);
+    setMobileOpen(false);
   };
 
   return (
@@ -100,7 +119,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex h-20 max-w-[1320px] items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="shrink-0">
+        <Link href="/" className="shrink-0" onClick={closeAllMenus}>
           <div className="flex items-center gap-3">
             <Image
               src="/ai-verse.png"
@@ -122,6 +141,7 @@ export default function Navbar() {
         <nav className="hidden items-center gap-10 lg:flex">
           <Link
             href="/"
+            onClick={closeAllMenus}
             className="font-medium text-blue-700 transition-all duration-300 ease-out hover:text-blue-800"
           >
             Home
@@ -162,6 +182,7 @@ export default function Navbar() {
                       <Link
                         key={item.title}
                         href={item.href}
+                        onClick={closeDesktopMenu}
                         className="block text-[17px] text-neutral-800 transition-all duration-300 ease-out hover:translate-x-1 hover:text-blue-700"
                       >
                         {item.title}
@@ -183,6 +204,7 @@ export default function Navbar() {
                         <Link
                           key={item.title}
                           href={item.href}
+                          onClick={closeDesktopMenu}
                           className="group rounded-[20px] border border-neutral-200 bg-white p-5 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_18px_45px_rgba(37,99,235,0.10)]"
                         >
                           <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 transition-all duration-300 ease-out group-hover:bg-gradient-to-r group-hover:from-blue-700/10 group-hover:to-cyan-400/10">
@@ -238,6 +260,7 @@ export default function Navbar() {
                       <Link
                         key={item.title}
                         href={item.href}
+                        onClick={closeDesktopMenu}
                         className="block text-[18px] font-medium text-neutral-900 transition-all duration-300 ease-out hover:translate-x-1 hover:text-blue-700"
                       >
                         {item.title}
@@ -268,6 +291,7 @@ export default function Navbar() {
 
           <Link
             href="/career"
+            onClick={closeAllMenus}
             className="font-medium text-neutral-900 transition-all duration-300 ease-out hover:text-blue-700"
           >
             Career
@@ -278,6 +302,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
+            onClick={closeAllMenus}
             className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-700 to-cyan-500 px-6 py-3 text-[16px] font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/25"
           >
             Contact Us
@@ -452,4 +477,4 @@ export default function Navbar() {
       </div>
     </header>
   );
-}
+}  
