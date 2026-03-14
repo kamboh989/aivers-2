@@ -35,6 +35,14 @@ const solutionServices = [
     title: "SEO",
     href: "/services/seo",
   },
+  {
+    title: "Blender",
+    href: "/services/blender",
+  },
+  {
+    title: "AI Automation",
+    href: "/services/automation",
+  },
 ];
 
 const businessChallenges = [
