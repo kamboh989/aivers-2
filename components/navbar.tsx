@@ -71,7 +71,7 @@ const businessChallenges = [
 const companyLinks = [
   { title: "About Us", href: "/company/about" },
   { title: "Team", href: "/company/team" },
-  { title: "Careers", href: "/career" },
+  { title: "Portfolio", href: "/portfolio" },
 ];
 
 export default function Navbar() {
@@ -298,11 +298,11 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="/career"
+            href="/portfolio"
             onClick={closeAllMenus}
             className="font-medium text-neutral-900 transition-all duration-300 ease-out hover:text-blue-700"
           >
-            Career
+            Portfolio
           </Link>
         </nav>
 
