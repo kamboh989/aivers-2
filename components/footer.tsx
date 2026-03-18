@@ -5,13 +5,11 @@ import {
   FaLinkedinIn,
   FaFacebookF,
   FaInstagram,
-  
 } from "react-icons/fa";
 
 const companyLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Career", href: "/career" },
+  { label: "About Us", href: "/company/about" },
+  { label: "Blogs", href: "/company/blogs" },
   { label: "Contact Us", href: "/contact" },
 ];
 
