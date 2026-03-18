@@ -5,7 +5,7 @@ import {
   FaLinkedinIn,
   FaFacebookF,
   FaInstagram,
-  FaYoutube,
+  
 } from "react-icons/fa";
 
 const companyLinks = [
@@ -16,10 +16,10 @@ const companyLinks = [
 ];
 
 const socialLinks = [
-  { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
-  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/aiverse-pk/about/", label: "LinkedIn" },
+  { icon: FaFacebookF, href: "https://www.facebook.com/people/Aiversepk/61583308357755/", label: "Facebook" },
+  { icon: FaInstagram, href: "https://www.instagram.com/aiverse.pk/", label: "Instagram" },
+  
 ];
 
 function FooterColumn({
