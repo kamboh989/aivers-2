@@ -72,6 +72,7 @@ const companyLinks = [
   { title: "About Us", href: "/company/about" },
   { title: "Team", href: "/company/team" },
   { title: "Portfolio", href: "/portfolio" },
+  { title: "Blogs", href: "/company/blogs" },
 ];
 
 export default function Navbar() {
