@@ -1,94 +1,103 @@
 "use client";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
-const testimonials = [
-  {
-    name: "Michael Carter",
-    role: "Product Manager",
-    review:
-      "Their team delivered a fast, scalable platform with excellent communication throughout the project. The final product was polished, reliable, and aligned perfectly with our business goals.",
-  },
-  {
-    name: "Sarah Khan",
-    role: "Marketing Director",
-    review:
-      "We saw a major improvement in our website performance, SEO visibility, and overall user experience. The process was smooth, strategic, and highly professional from start to finish.",
-  },
-  {
-    name: "David Reynolds",
-    role: "Startup Founder",
-    review:
-      "From planning to launch, they handled everything with clarity and speed. Their technical expertise helped us ship faster while maintaining high quality across the product.",
-  },
-  {
-    name: "Emma Roberts",
-    role: "Operations Lead",
-    review:
-      "The custom software solution streamlined our workflow and removed a lot of manual bottlenecks. Their team understood our needs quickly and delivered with precision.",
-  },
-  {
-    name: "James Walker",
-    role: "Ecommerce Manager",
-    review:
-      "Our Shopify and SEO improvements made an immediate impact on conversions and site performance. They combined design, development, and strategy in a very effective way.",
-  },
-  {
-    name: "Ayesha Malik",
-    role: "Brand Consultant",
-    review:
-      "Their creative and technical balance is exceptional. From design quality to development standards, every part of the project felt thoughtfully executed and growth-focused.",
-  },
-];
+// Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
 
-export default function TestimonialsSection() {
-  const loopTestimonials = [...testimonials, ...testimonials];
+const TestimonialSection = () => {
+  const reviews = [
+    { name: "John Doe", company: "TechFlow Solutions", text: "aiverse.pk delivered our Next.js project ahead of schedule. Their attention to detail in UI/UX and performance optimization is unmatched in the industry." },
+    { name: "Sarah Malik", company: "Global Retail", text: "The custom Shopify integration they built for us transformed our business. Instant response times and professional communication throughout the project." },
+    { name: "Alex Rivera", company: "FinTech Hub", text: "Hands down the best experience! They completely transformed our legacy system into a modern Node.js powerhouse. 10/10 recommendation!" },
+    { name: "Imran Khan", company: "EduSmart", text: "The mobile app they developed is flawless. User engagement increased by 40% within the first month. Truly a visionary team." },
+    { name: "David Chen", company: "Nexus AI", text: "Expertise in AI and automation is rare, but aiverse.pk has it. They simplified our complex data workflows with elegant software solutions." },
+    { name: "Sophia White", company: "CloudScale", text: "I am thrilled with the website designed for me! The process was smooth, with excellent communication. The team is highly skilled in React." },
+    { name: "Michael Ross", company: "BuildIt Corp", text: "Professional, effective, and reliable. They handled our enterprise migration with zero downtime. Best IT partner we've had in 8 years." },
+    { name: "Elena Rodriguez", company: "EcoEnergy", text: "Creative and technical brilliance combined. Their web solutions helped us rank #1 on Google for our primary keywords." }
+  ];
 
   return (
-    <section className="overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-[900px] text-center">
-          <h2 className="text-[34px] font-extrabold leading-tight text-slate-950 sm:text-[44px] lg:text-[58px]">
-            Trusted by{" "}
-            <span className="bg-gradient-to-r from-blue-700 via-sky-600 to-cyan-500 bg-clip-text text-transparent">
-              businesses
-            </span>{" "}
-            worldwide
-          </h2>
+    <section className="bg-black text-white py-20 px-6 relative overflow-hidden">
+      {/* Top Header */}
+      <div className="container mx-auto text-center mb-16">
+        <span className="bg-[#1a1a1a] text-blue-500 text-[10px] font-bold tracking-[0.2em] px-3 py-1.5 rounded uppercase border border-gray-800">
+          Our Testimonials
+        </span>
+        <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-4">See What Our Clients Say About Us</h2>
+        <p className="text-gray-400 max-w-2xl mx-auto">
+          Over the last 8 years, aiverse.pk has been driven by our passion for helping clients achieve their goals through cutting-edge IT solutions.
+        </p>
+      </div>
 
-          <p className="mx-auto mt-4 max-w-[760px] text-[17px] leading-8 text-slate-600 sm:text-[19px]">
-            See what our clients say about our web, software, mobile, SEO, and
-            digital solutions built for real business growth.
-          </p>
+      {/* The Styled Blue Divider Line with Center Label */}
+      <div className="relative w-full mb-20">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t-4 border-blue-600 rounded-full"></div>
         </div>
-
-        <div className="relative mt-12">
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white to-transparent sm:w-24" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white to-transparent sm:w-24" />
-
-          <div className="group overflow-hidden">
-            <div className="flex w-max animate-[testimonial-marquee_36s_linear_infinite] gap-6 group-hover:[animation-play-state:paused]">
-              {loopTestimonials.map((item, index) => (
-                <article
-                  key={`${item.name}-${index}`}
-                  className="w-[300px] shrink-0 rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_18px_45px_rgba(37,99,235,0.10)] sm:w-[340px] lg:w-[380px]"
-                >
-                  <div className="mb-5">
-                    <h3 className="text-[22px] font-bold leading-tight text-slate-950">
-                      {item.name}
-                    </h3>
-                    <p className="mt-1 text-[15px] font-medium text-cyan-600">
-                      {item.role}
-                    </p>
-                  </div>
-
-                  <p className="text-[16px] leading-8 text-slate-700 sm:text-[17px]">
-                    “{item.review}”
-                  </p>
-                </article>
-              ))}
-            </div>
+        <div className="relative flex justify-center">
+          <div className="bg-blue-600 text-white px-10 py-3 rounded-t-2xl font-bold text-sm">
+            Clients Reviews
           </div>
         </div>
+        {/* Curvy Downward Accents (Recreating the visual style) */}
+        <div className="flex justify-between absolute w-full px-10 md:px-40 -bottom-6">
+            <div className="w-1 h-8 bg-blue-600 rounded-full"></div>
+            <div className="w-1 h-12 bg-blue-600 rounded-full translate-x-1/2"></div>
+            <div className="w-1 h-8 bg-blue-600 rounded-full"></div>
+        </div>
+      </div>
+
+      {/* Slider Container */}
+      <div className="container mx-auto relative px-12">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation={{
+            nextEl: '.next-btn',
+            prevEl: '.prev-btn',
+          }}
+          autoplay={{ delay: 5000 }}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="pb-12"
+        >
+          {reviews.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-[#111] p-8 rounded-3xl border border-gray-800 h-[320px] flex flex-col justify-between hover:border-blue-500 transition-all duration-300">
+                <div>
+                  <div className="flex text-blue-500 mb-4">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+                  </div>
+                  <p className="text-gray-300 text-sm italic leading-relaxed">
+                    "{item.text}"
+                  </p>
+                </div>
+                <div className="mt-6">
+                  <h4 className="text-blue-500 font-bold">{item.name}</h4>
+                  <span className="text-xs text-gray-500">{item.company}</span>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Custom Navigation Buttons */}
+        <button className="prev-btn absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full hover:bg-blue-500 hover:text-white transition-all shadow-xl">
+          <ChevronLeft size={24} />
+        </button>
+        <button className="next-btn absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full hover:bg-blue-500 hover:text-white transition-all shadow-xl">
+          <ChevronRight size={24} />
+        </button>
       </div>
     </section>
   );
-}
+};
+
+export default TestimonialSection;

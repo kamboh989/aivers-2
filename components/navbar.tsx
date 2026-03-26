@@ -13,6 +13,7 @@ import {
   Megaphone,
   Code2,
 } from "lucide-react";
+import { FaAws, FaGoogle, FaMicrosoft, FaSalesforce } from 'react-icons/fa';
 
 const solutionServices = [
   {
@@ -279,20 +280,24 @@ export default function Navbar() {
                 </div>
 
                 <div className="col-span-3 border-l border-neutral-100 p-10">
-                  <div className="space-y-5 text-[18px] text-neutral-900">
-                    <p className="font-medium transition-all duration-300 ease-out hover:text-blue-700">
-                      AWS
-                    </p>
-                    <p className="font-medium transition-all duration-300 ease-out hover:text-blue-700">
-                      Google Cloud
-                    </p>
-                    <p className="font-medium transition-all duration-300 ease-out hover:text-blue-700">
-                      Microsoft
-                    </p>
-                    <p className="font-medium transition-all duration-300 ease-out hover:text-blue-700">
-                      Salesforce
-                    </p>
-                  </div>
+                 <div className="space-y-5 text-[18px] text-neutral-900">
+  <p className="font-medium transition-all duration-300 ease-out hover:text-blue-700">
+    <FaAws className="inline-block mr-2" />
+    AWS
+  </p>
+  <p className="font-medium transition-all duration-300 ease-out hover:text-blue-700">
+    <FaGoogle className="inline-block mr-2" />
+    Google Cloud
+  </p>
+  <p className="font-medium transition-all duration-300 ease-out hover:text-blue-700">
+    <FaMicrosoft className="inline-block mr-2" />
+    Microsoft
+  </p>
+  <p className="font-medium transition-all duration-300 ease-out hover:text-blue-700">
+    <FaSalesforce className="inline-block mr-2" />
+    Salesforce
+  </p>
+</div>
                 </div>
               </div>
             </div>

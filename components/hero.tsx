@@ -1,62 +1,65 @@
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
 
-export default function HeroSection() {
+const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-[#f7fbfb]">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-[-120px] top-[-120px] h-[320px] w-[320px] rounded-full bg-blue-200/25 blur-3xl" />
-        <div className="absolute bottom-[-140px] right-[-100px] h-[320px] w-[320px] rounded-full bg-cyan-200/30 blur-3xl" />
-        <div className="absolute left-1/2 top-1/3 h-[220px] w-[220px] -translate-x-1/2 rounded-full bg-sky-100/30 blur-3xl" />
-      </div>
-
-      <div className="mx-auto grid min-h-[calc(100vh-80px)] max-w-[1320px] items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-20">
-        <div className="max-w-[640px]">
-          <div className="mb-5 flex items-center gap-3">
-            <span className="inline-block h-[2px] w-10 rounded-full bg-neutral-900" />
-            <p className="bg-gradient-to-r from-blue-700 to-cyan-500 bg-clip-text text-sm font-semibold uppercase tracking-[0.14em] text-transparent sm:text-base">
-              Digital Services
-            </p>
-          </div>
-<h1 className="text-[42px] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-800 sm:text-[56px] lg:text-[62px]">
-  IT that grows your <br />
-  <span className="bg-gradient-to-r from-blue-700 via-sky-600 to-cyan-500 bg-clip-text text-transparent">
-    business
-  </span>
-</h1>
-
-          <p className="mt-7 max-w-[620px] text-[18px] leading-[1.75] text-slate-800 sm:text-[20px]">
-           We are a full-service digital agency delivering high-quality web
-  development, custom software solutions, game development, and
-  professional graphic design services
+    // Section ki height ko restricted rakha hai (min-h-[450px])
+    <section className="relative bg-white min-h-[450px] flex items-center overflow-hidden">
+      {/* Grid container ko gap kam aur alignment behtar ki hai */}
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+        
+        {/* Left Content */}
+        <div className="z-10 py-10">
+          {/* leading-tight use kiya hai taki lines ke beech ka gap kam ho */}
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-black leading-tight tracking-tight max-w-lg">
+            We manage your IT, <br />
+            so you can manage <br />
+            your business.
+          </h1>
+          
+          {/* Paragraph ki leading bhi tighten ki hai */}
+          <p className="mt-4 text-xl text-gray-800 font-medium leading-normal max-w-md">
+            Leading Software & Mobile <br /> Development Agency
           </p>
-
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-700 to-cyan-500 px-7 py-3.5 text-[16px] font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl"
-            >
-              Get Started
-            </Link>
-
-           
+          
+          {/* Buttons spacing optimized */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-base hover:bg-blue-700 transition shadow-sm">
+              Schedule a Free Consultation
+            </button>
+            <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-md font-semibold text-base hover:bg-blue-50 transition">
+              Services
+            </button>
           </div>
         </div>
 
-        <div className="relative flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-[620px]">
-            <div className="relative aspect-[1.08/0.82] w-full overflow-hidden rounded-[28px]">
-              <Image
-                src="/hero.webp"
-                alt="Hero Image"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+        {/* Right Image Container - Iski height ko directly control kiya hai */}
+        <div className="relative w-full h-[400px] md:h-[450px]">
+          {/* The Diagonal Cut Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center z-0"
+            style={{
+              // APNI IMAGE KA PATH YAHA DALEIN
+              backgroundImage: `url('/hero.jpg')`, 
+              // Ye wahi cut design replicate karega
+              clipPath: 'polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)',
+              // Screenshot jaisa placement dene ke liye shift kiya gaya
+              marginLeft: '-15%', 
+            }}
+          >
+            {/* Subtle overlay */}
+            <div className="absolute inset-0 bg-black/5"></div>
+          </div>
+
+          {/* Neon Green Accent Lines (Thoda niche placement) */}
+          <div className="absolute bottom-12 left-[-30px] z-20 flex flex-col gap-2.5 rotate-[-40deg]">
+            {/* <div className="h-5 w-44 bg-[#ADFF2F] rounded-full opacity-90 shadow-lg"></div>
+            <div className="h-5 w-60 bg-[#ADFF2F] rounded-full opacity-90 shadow-lg"></div> */}
           </div>
         </div>
+
       </div>
     </section>
   );
-}
+};
+
+export default HeroSection;

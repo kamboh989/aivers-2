@@ -1,109 +1,88 @@
-"use client";
+'use client'
+import React from 'react';
 
-import type { IconType } from "react-icons";
-import {
-  SiWordpress,
-  SiFlutter,
-  SiShopify,
-  SiNextdotjs,
-  SiReact,
-  SiNodedotjs,
-  SiMongodb,
-  SiApple,
-  SiAndroid,
-  SiJavascript,
-} from "react-icons/si";
-import { FaMagento } from "react-icons/fa";
 
-const topRow: { name: string; icon: IconType }[] = [
-  { name: "WORDPRESS", icon: SiWordpress },
-  { name: "SHOPIFY", icon: SiShopify },
-  { name: "MERN STACK", icon: SiMongodb },
-  { name: "REACT JS", icon: SiReact },
-  { name: "NODE JS", icon: SiNodedotjs },
-  { name: "ANDROID", icon: SiAndroid },
-];
-
-const bottomRow: { name: string; icon: IconType }[] = [
-  { name: "FLUTTER", icon: SiFlutter },
-  { name: "NEXT JS", icon: SiNextdotjs },
-  { name: "IOS", icon: SiApple },
-  { name: "JAVASCRIPT", icon: SiJavascript },
-  { name: "WORDPRESS", icon: SiWordpress },
-  { name: "MAGENTO", icon: FaMagento },
-];
-
-function TechStrip({
-  items,
-  reverse = false,
-}: {
-  items: { name: string; icon: IconType }[];
-  reverse?: boolean;
-}) {
-  const loopItems = [...items, ...items];
+const TechPlatforms = () => {
+  // Icons list with adjusted positions to form a perfect neat circle
+  const techIcons = [
+    { name: 'WordPress', src: 'https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg', top: '0%', left: '40%' }, // Top Center
+    { name: 'Next.js', src: 'https://cdn.worldvectorlogo.com/logos/next-js.svg', top: '15%', left: '75%' },     // Top Right
+    { name: 'Laravel', src: 'https://cdn.worldvectorlogo.com/logos/laravel-2.svg', top: '50%', left: '85%' },    // Mid Right
+    { name: 'React', src: 'https://cdn.worldvectorlogo.com/logos/react-2.svg', top: '80%', left: '65%' },       // Bottom Right
+    { name: 'NodeJS', src: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg', top: '85%', left: '30%' },   // Bottom Left
+    { name: 'Flutter', src: 'https://cdn.worldvectorlogo.com/logos/flutter.svg', top: '65%', left: '0%' },      // Mid Left
+    { name: 'Shopify', src: 'https://cdn.worldvectorlogo.com/logos/shopify.svg', top: '20%', left: '5%' },      // Top Left
+  ];
 
   return (
-    <div
-      className={`flex w-max items-center gap-8 sm:gap-10 lg:gap-12 ${
-        reverse
-          ? "animate-[techMarqueeReverse_30s_linear_infinite]"
-          : "animate-[techMarquee_30s_linear_infinite]"
-      }`}
-    >
-      {loopItems.map((item, index) => {
-        const Icon = item.icon;
-
-        return (
-          <div
-            key={`${item.name}-${index}`}
-            className="flex min-w-[105px] shrink-0 flex-col items-center justify-center gap-1.5 sm:min-w-[125px] lg:min-w-[145px]"
-          >
-            <Icon className="h-5 w-5 text-slate-800 sm:h-6 sm:w-6 lg:h-7 lg:w-7" />
-            <p className="text-center text-[10px] font-extrabold tracking-[0.04em] text-slate-800 sm:text-[11px] lg:text-[12px]">
-              {item.name}
-            </p>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-export default function TechnologiesSection() {
-  return (
-    <section className="overflow-hidden bg-white py-28 sm:py-36 lg:py-44">
-      <div className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-[980px] text-center">
-          <h2 className="text-[34px] font-extrabold leading-tight text-slate-950 sm:text-[46px] lg:text-[64px]">
-            <span className="bg-gradient-to-r from-blue-700 via-sky-600 to-cyan-500 bg-clip-text text-transparent">
-              Technologies
-            </span>{" "}
-            We Work With
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-16">
+        
+        {/* Left Content Side */}
+        <div className="lg:w-1/2 z-10 text-center lg:text-left">
+          <span className="bg-gray-100 text-gray-600 text-[10px] font-bold tracking-widest px-3 py-1 rounded uppercase">
+            Platforms
+          </span>
+          
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black mt-6 leading-tight">
+            Our Technologies <br /> and Platforms
           </h2>
-
-          <p className="mx-auto mt-5 max-w-[920px] text-[17px] leading-8 text-slate-700 sm:text-[20px]">
-            We use modern frameworks and proven tooling to build fast websites,
-            scalable mobile apps, and growth systems that improve visibility
-            through SEO and ASO.
+          
+          <p className="mt-6 text-gray-600 text-lg max-w-md mx-auto lg:mx-0 leading-relaxed">
+            Our expertise spans across various web development platforms, 
+            ensuring versatile solutions tailored to your unique needs and goals.
           </p>
-        </div>
-      </div>
-
-      <div className="relative  h-[460px] overflow-hidden  sm:h-[660px] lg:h-[560px]">
-        {/* back strip */}
-        <div className="absolute left-1/2 top-1/2 z-10 w-[135vw] min-w-[920px] -translate-x-1/2 -translate-y-1/2 rotate-[7deg] sm:w-[128vw] sm:min-w-[1040px] lg:w-[118vw] lg:min-w-[1180px]">
-          <div className="overflow-hidden bg-[#eceef0] py-3 sm:py-4 lg:py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-            <TechStrip items={topRow} />
+          
+          <div className="mt-10">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-md font-bold text-base hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+              View All Technologies
+            </button>
           </div>
         </div>
 
-        {/* front strip */}
-        <div className="absolute left-1/2 top-1/2 z-20 w-[135vw] min-w-[920px] -translate-x-1/2 -translate-y-1/2 rotate-[-7deg] sm:w-[128vw] sm:min-w-[1040px] lg:w-[118vw] lg:min-w-[1180px]">
-          <div className="overflow-hidden bg-gradient-to-r from-[#e3f1f0] via-[#d9e9e8] to-[#e3f1f0] py-3 sm:py-4 lg:py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_8px_24px_rgba(0,0,0,0.03)]">
-            <TechStrip items={bottomRow} reverse />
+        {/* Right Floating Icons Side (The Circle) */}
+        <div className="lg:w-1/2 relative h-[450px] w-full flex items-center justify-center">
+          <div className="relative w-full h-full max-w-[500px]">
+            {techIcons.map((icon, index) => (
+              <div
+                key={index}
+                className="absolute transition-transform duration-700 ease-in-out hover:scale-110 cursor-pointer animate-float"
+                style={{
+                  top: icon.top,
+                  left: icon.left,
+                  animationDelay: `${index * 0.2}s` // Thoda bounciness ke liye
+                }}
+              >
+                <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white p-4 rounded-2xl shadow-xl shadow-blue-50 border border-gray-100 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={icon.src}
+                    alt={icon.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+            
+            {/* Center Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-100/40 rounded-full blur-3xl -z-10"></div>
           </div>
         </div>
+
       </div>
+
+      {/* Tailwind Custom Floating Animation */}
+      <style jsx>{`
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
-}
+};
+
+export default TechPlatforms;

@@ -3,7 +3,7 @@ import Hero from "./hero";
 import Faq from "./faq";
 import Imges from "./images";
 import Services from "./services";
-import Button from "./cta button";
+
 const page = () => {
   return (
     <div>
@@ -11,7 +11,7 @@ const page = () => {
         <Faq/>
         <Imges/>
         <Services/>
-        <Button/>
+      
     </div>
   )
 }

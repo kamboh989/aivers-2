@@ -1,194 +1,154 @@
-import Image from "next/image";
-import Link from "next/link";
-import {
-  Code2,
-  MonitorSmartphone,
-  PenTool,
-  Megaphone,
-  Search,
-  Gamepad2,
-  Cuboid,
-  Globe,
-  Bot,
-  ShoppingBag,
-  Boxes,
-} from "lucide-react";
+'use client'
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { 
+  Code2, Atom, Server, 
+  Wordpress, ShoppingBag, LayoutTemplate, 
+  Smartphone, Tablet, Apple, 
+  TrendingUp, Megaphone, Search,
+  Palette, PenTool, Layout
+} from 'lucide-react';
 
-const services = [
-  {
-    title: "Web Development",
-    description:
-      "Modern, high-performance websites built for speed, scalability, and user experience.",
-    href: "/services/web-development",
-    image:
-      "/web.webp",
-    icon: Code2,
-  },
-  {
-    title: "Software Development",
-    description:
-      "Custom software solutions designed to streamline operations and support business growth.",
-    href: "/services/software-development",
-    image:
-      "/software.webp",
-    icon: MonitorSmartphone,
-  },
-  {
-    title: "Graphic Design",
-    description:
-      "Creative branding, social assets, and visual design that makes your business stand out.",
-    href: "/services/graphic-design",
-    image:
-      "/graphic.jpg",
-    icon: PenTool,
-  },
-  {
-    title: "Digital Marketing",
-    description:
-      "Result-driven marketing campaigns to increase reach, engagement, and conversions.",
-    href: "/services/digital-marketing",
-    image:
-      "/digital.jpg",
-    icon: Megaphone,
-  },
-  {
-    title: "SEO Services",
-    description:
-      "Search-focused strategies to improve rankings, traffic, and long-term online visibility.",
-    href: "/services/seo",
-    image:
-      "/seo.webp",
-    icon: Search,
-  },
-  {
-    title: "Game Development",
-    description:
-      "Interactive and immersive game experiences built with creativity, performance, and polish.",
-    href: "/services/game-development",
-    image:
-      "/game.jpg",
-    icon: Gamepad2,
-  },
-  {
-    title: "3D Animation",
-    description:
-      "High-quality 3D animation and motion visuals for products, ads, and digital experiences.",
-    href: "/services/3d-animation",
-    image:
-      "/3d.jpg",
-    icon: Cuboid,
-  },
-  {
-    title: "WordPress Development",
-    description:
-      "Custom WordPress websites with flexible CMS, responsive layouts, and strong performance.",
-    href: "/services/wordpress-development",
-    image:
-      "/mobile.webp",
-    icon: Globe,
-  },
-  {
-    title: "AI Automation",
-    description:
-      "Smart automations that reduce manual work and improve productivity using AI-powered workflows.",
-    href: "/services/ai-automation",
-    image:
-      "/ai.jpg",
-    icon: Bot,
-  },
-  {
-    title: "Shopify Development",
-    description:
-      "Conversion-focused Shopify stores designed for seamless shopping and scalable growth.",
-    href: "/services/shopify-development",
-    image:
-      "/shopify.jpg",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Blender Design",
-    description:
-      "Professional Blender modeling, rendering, and visuals for products and creative projects.",
-    href: "/services/blender-design",
-    image:
-      "/blender.jpg",
-    icon: Boxes,
-  },
-];
+const ServicesSection = () => {
+  const [activeTab, setActiveTab] = useState('Custom');
 
-export default function ServicesSection() {
+  // Har category ke liye real data aur icons
+  const servicesData = {
+    'Custom': [
+    { 
+        title: 'Next.js', 
+        desc: 'We build high-performance, SEO-friendly React applications using Next.js for seamless user experiences and fast loading.',
+        // Next.js Official Icon
+        icon: (
+          <div className="relative w-14 h-14">
+            <Image 
+              src="https://cdn.worldvectorlogo.com/logos/next-js.svg" 
+              alt="Next.js" 
+              fill 
+              className="object-contain"
+            />
+          </div>
+        )
+      },
+      { 
+        title: 'React', 
+        desc: 'We are skilled React developers crafting responsive, dynamic websites with modern UI/UX design.',
+        icon: <Atom className="w-12 h-12 text-blue-500" />
+      },
+      { 
+        title: 'Node JS', 
+        desc: 'We create dynamic websites using Node.js, ensuring performance, scalability, and modern standards.',
+        icon: <Server className="w-12 h-12 text-green-600" />
+      },
+    ],
+    'CMS': [
+      { 
+        title: 'WordPress', 
+        desc: 'Professional WordPress development for blogs, business sites, and custom themes.',
+        icon: <img src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" className="w-12 h-12" alt="WP" />
+      },
+      { 
+        title: 'Shopify', 
+        desc: 'High-converting Shopify stores with custom liquid coding and app integrations.',
+        icon: <ShoppingBag className="w-12 h-12 text-green-500" />
+      },
+      { 
+        title: 'Webflow', 
+        desc: 'Pixel-perfect Webflow designs with smooth interactions and SEO optimization.',
+        icon: <LayoutTemplate className="w-12 h-12 text-blue-600" />
+      },
+    ],
+    'Mobile Apps': [
+      { 
+        title: 'iOS Apps', 
+        desc: 'Native iOS development using Swift for premium Apple ecosystem experiences.',
+        icon: <Apple className="w-12 h-12 text-gray-800" />
+      },
+      { 
+        title: 'Android', 
+        desc: 'High-performance Android applications built with Kotlin and latest SDKs.',
+        icon: <Smartphone className="w-12 h-12 text-green-500" />
+      },
+      { 
+        title: 'React Native', 
+        desc: 'Cross-platform mobile apps that save time and cost without compromising quality.',
+        icon: <Tablet className="w-12 h-12 text-blue-400" />
+      },
+    ],
+    'Marketing': [
+      { title: 'SEO', desc: 'Rank higher on Google with our data-driven SEO strategies.', icon: <Search className="w-12 h-12 text-blue-500" /> },
+      { title: 'Social Media', desc: 'Grow your brand presence across all social platforms.', icon: <Megaphone className="w-12 h-12 text-pink-500" /> },
+      { title: 'Growth', desc: 'Accelerate your business revenue with targeted marketing.', icon: <TrendingUp className="w-12 h-12 text-orange-500" /> },
+    ],
+    'Design': [
+      { title: 'UI/UX Design', desc: 'User-centric designs that convert visitors into customers.', icon: <Palette className="w-12 h-12 text-purple-500" /> },
+      { title: 'Branding', desc: 'Visual identity and logo design that speaks for your brand.', icon: <PenTool className="w-12 h-12 text-red-500" /> },
+      { title: 'Prototyping', desc: 'High-fidelity prototypes to visualize your product before coding.', icon: <Layout className="w-12 h-12 text-indigo-500" /> },
+    ],
+  };
+
+  const categories = ['Custom', 'CMS', 'Mobile Apps', 'Marketing', 'Design'];
+
   return (
-    <section className=" py-16 sm:py-20 lg:py-24" id="services">
-      <div className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-12 max-w-[760px] text-center sm:mb-14">
-          <h2 className="text-[34px] font-extrabold leading-tight text-slate-950 sm:text-[42px] lg:text-[52px]">
-            Our{" "}
-            <span className="bg-gradient-to-r from-blue-700 via-sky-600 to-cyan-500 bg-clip-text text-transparent">
-              Services
-            </span>
+    <section className="py-24 px-6 bg-gradient-to-br from-[#FFFBEB] via-white to-[#EFF6FF]">
+      <div className="container mx-auto max-w-7xl">
+        
+        {/* Header Section */}
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-20 gap-10">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F172A] tracking-tight">
+            We provide clients with <br /> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              Award-Winning
+            </span> services
           </h2>
 
-          <p className="mx-auto mt-4 max-w-[720px] text-[16px] leading-7 text-slate-700 sm:text-[18px]">
-            Explore our core services including web development, software
-            development, graphic design, digital marketing, SEO, AI automation,
-            and more—built to help your business grow faster.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => {
-            const Icon = service.icon;
-
-            return (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="group block"
+          {/* Categories Navigation */}
+          <div className="flex flex-wrap gap-2 bg-gray-100/50 p-1.5 rounded-full border border-gray-200 backdrop-blur-sm">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveTab(cat)}
+                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+                  activeTab === cat 
+                  ? 'bg-blue-600 text-white shadow-lg' 
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-white'
+                }`}
               >
-                <article className="overflow-hidden rounded-[28px] bg-[#dff2f1] p-3 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.10)]">
-                 <div className="relative h-[230px] overflow-hidden rounded-[22px] sm:h-[250px]">
-  <Image
-    src={service.image}
-    alt={service.title}
-    fill
-    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-  />
-
-  <div className="absolute inset-0 bg-gradient-to-r from-[#071b42]/92 via-[#071b42]/82 to-[#071b42]/15 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
-
-  <div className="absolute inset-y-0 left-0 flex w-[72%] items-center">
-    <div className="h-full w-full rounded-r-[120px] bg-[#071b42]/88 px-6 py-7 opacity-0 -translate-x-8 transition-all duration-700 ease-out group-hover:translate-x-0 group-hover:opacity-100 sm:px-7">
-      <div className="mb-3 flex items-center gap-2">
-        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-cyan-400/10">
-          <Icon className="h-5 w-5 text-cyan-400" />
-        </span>
-
-        <h3 className="text-[24px] font-bold leading-tight text-cyan-400 sm:text-[28px]">
-          {service.title}
-        </h3>
-      </div>
-
-      <p className="max-w-[280px] text-[16px] leading-7 text-white/90 sm:text-[17px]">
-        {service.description}
-      </p>
-    </div>
-  </div>
-</div>
-                  <div className="flex items-center gap-3 px-2 pb-2 pt-5">
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#071b42] text-white transition-all duration-300 ease-out group-hover:bg-gradient-to-r group-hover:from-blue-700 group-hover:to-cyan-500">
-                      <Icon className="h-4 w-4" />
-                    </span>
-
-                    <h3 className="text-[20px] font-semibold text-slate-950 transition-all duration-300 ease-out group-hover:text-blue-700">
-                      {service.title}
-                    </h3>
-                  </div>
-                </article>
-              </Link>
-            );
-          })}
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
+          {servicesData[activeTab].map((service, index) => (
+            <div 
+              key={index} 
+              className="flex flex-col items-center text-center group animate-in fade-in slide-in-from-bottom-4 duration-500"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              {/* Icon Container */}
+              <div className="w-24 h-24 mb-8 flex items-center justify-center rounded-3xl bg-white shadow-xl shadow-blue-100 group-hover:shadow-blue-200 group-hover:-translate-y-2 transition-all duration-300 border border-gray-50">
+                {service.icon}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-[#0F172A] mb-4">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-500 text-base leading-relaxed max-w-sm px-4">
+                {service.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
-}
+};
+
+export default ServicesSection;
