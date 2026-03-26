@@ -3,22 +3,32 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { 
   Code2, Atom, Server, 
-  Wordpress, ShoppingBag, LayoutTemplate, 
+  ShoppingBag, LayoutTemplate, 
   Smartphone, Tablet, Apple, 
   TrendingUp, Megaphone, Search,
   Palette, PenTool, Layout
 } from 'lucide-react';
 
-const ServicesSection = () => {
-  const [activeTab, setActiveTab] = useState('Custom');
+// ✅ Step 1: Proper Tab Type
+type TabType = 'Custom' | 'CMS' | 'Mobile Apps' | 'Marketing' | 'Design';
 
-  // Har category ke liye real data aur icons
-  const servicesData = {
-    'Custom': [
-    { 
+// ✅ Step 2: Service Type
+type Service = {
+  title: string;
+  desc: string;
+  icon: React.ReactNode;
+};
+
+const ServicesSection = () => {
+  // ✅ Step 3: Typed state
+  const [activeTab, setActiveTab] = useState<TabType>('Custom');
+
+  // ✅ Step 4: Properly typed data
+  const servicesData: Record<TabType, Service[]> = {
+    Custom: [
+      { 
         title: 'Next.js', 
         desc: 'We build high-performance, SEO-friendly React applications using Next.js for seamless user experiences and fast loading.',
-        // Next.js Official Icon
         icon: (
           <div className="relative w-14 h-14">
             <Image 
@@ -41,11 +51,17 @@ const ServicesSection = () => {
         icon: <Server className="w-12 h-12 text-green-600" />
       },
     ],
-    'CMS': [
+    CMS: [
       { 
         title: 'WordPress', 
         desc: 'Professional WordPress development for blogs, business sites, and custom themes.',
-        icon: <img src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" className="w-12 h-12" alt="WP" />
+        icon: (
+          <img 
+            src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" 
+            className="w-12 h-12" 
+            alt="WordPress" 
+          />
+        )
       },
       { 
         title: 'Shopify', 
@@ -75,25 +91,26 @@ const ServicesSection = () => {
         icon: <Tablet className="w-12 h-12 text-blue-400" />
       },
     ],
-    'Marketing': [
+    Marketing: [
       { title: 'SEO', desc: 'Rank higher on Google with our data-driven SEO strategies.', icon: <Search className="w-12 h-12 text-blue-500" /> },
       { title: 'Social Media', desc: 'Grow your brand presence across all social platforms.', icon: <Megaphone className="w-12 h-12 text-pink-500" /> },
       { title: 'Growth', desc: 'Accelerate your business revenue with targeted marketing.', icon: <TrendingUp className="w-12 h-12 text-orange-500" /> },
     ],
-    'Design': [
+    Design: [
       { title: 'UI/UX Design', desc: 'User-centric designs that convert visitors into customers.', icon: <Palette className="w-12 h-12 text-purple-500" /> },
       { title: 'Branding', desc: 'Visual identity and logo design that speaks for your brand.', icon: <PenTool className="w-12 h-12 text-red-500" /> },
       { title: 'Prototyping', desc: 'High-fidelity prototypes to visualize your product before coding.', icon: <Layout className="w-12 h-12 text-indigo-500" /> },
     ],
   };
 
-  const categories = ['Custom', 'CMS', 'Mobile Apps', 'Marketing', 'Design'];
+  // ✅ Step 5: Typed categories
+  const categories: TabType[] = ['Custom', 'CMS', 'Mobile Apps', 'Marketing', 'Design'];
 
   return (
     <section className="py-24 px-6 bg-gradient-to-br from-[#FFFBEB] via-white to-[#EFF6FF]">
       <div className="container mx-auto max-w-7xl">
         
-        {/* Header Section */}
+        {/* Header */}
         <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-20 gap-10">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F172A] tracking-tight">
             We provide clients with <br /> 
@@ -102,7 +119,7 @@ const ServicesSection = () => {
             </span> services
           </h2>
 
-          {/* Categories Navigation */}
+          {/* Tabs */}
           <div className="flex flex-wrap gap-2 bg-gray-100/50 p-1.5 rounded-full border border-gray-200 backdrop-blur-sm">
             {categories.map((cat) => (
               <button
@@ -120,7 +137,7 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Services Grid */}
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
           {servicesData[activeTab].map((service, index) => (
             <div 
@@ -128,17 +145,14 @@ const ServicesSection = () => {
               className="flex flex-col items-center text-center group animate-in fade-in slide-in-from-bottom-4 duration-500"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Icon Container */}
               <div className="w-24 h-24 mb-8 flex items-center justify-center rounded-3xl bg-white shadow-xl shadow-blue-100 group-hover:shadow-blue-200 group-hover:-translate-y-2 transition-all duration-300 border border-gray-50">
                 {service.icon}
               </div>
 
-              {/* Title */}
               <h3 className="text-2xl font-bold text-[#0F172A] mb-4">
                 {service.title}
               </h3>
 
-              {/* Description */}
               <p className="text-gray-500 text-base leading-relaxed max-w-sm px-4">
                 {service.desc}
               </p>

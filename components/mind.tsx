@@ -92,7 +92,7 @@ const ContactSection = () => {
               {/* Project Details */}
               <div className="md:col-span-2">
                 <textarea 
-                  rows="4" 
+                   rows={4}
                   placeholder="Your project details..." 
                   className="w-full bg-white border-none rounded-xl p-5 text-gray-700 focus:ring-2 focus:ring-blue-500 shadow-sm resize-none"
                 ></textarea>
