@@ -80,10 +80,12 @@ export default function TechnologiesSection() {
         </div>
 
         {/* Contact Button */}
-        <button className="bg-[#0022FF] hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded flex items-center gap-2 transition-colors duration-300 mx-auto">
-          <span className="text-xl">🗪</span> {/* Using a Unicode character for contact chat icon */}
-          Contact for Custom Offer
-        </button>
+       <a href="/contact" className="inline-block">
+  <button className="bg-[#0022FF] hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded flex items-center gap-2 transition-colors duration-300 mx-auto">
+    <span className="text-xl">🗪</span> {/* Using a Unicode character for contact chat icon */}
+    Contact for Custom Offer
+  </button>
+</a>
       </div>
     </section>
   );

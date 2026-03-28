@@ -23,9 +23,11 @@ export default function BetterTogetherSection() {
             </p>
           </div>
 
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-10 rounded-md transition-colors duration-300">
-            Get in touch
-          </button>
+         <a href="/contact" className="inline-block">
+  <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-10 rounded-md transition-colors duration-300">
+    Get in touch
+  </button>
+</a>
         </div>
 
         {/* Right Side: Angled Image Container */}

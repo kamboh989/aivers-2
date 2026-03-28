@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Facebook, Globe, Instagram, Github } from 'lucide-react';
+import { Linkedin, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,9 +14,11 @@ const Footer = () => {
             Ready to transform your Ideas into <br />
             <span className="text-blue-500">Innovative Software Solutions?</span>
           </h2>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg transition-all shadow-lg shadow-blue-900/20">
-            Schedule a Free Consultation Today
-          </button>
+        <a href="/contact" className="inline-block">
+  <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg transition-all shadow-lg shadow-blue-900/20">
+    Schedule a Free Consultation Today
+  </button>
+</a>
         </div>
 
         <hr className="border-gray-800 mb-16" />
@@ -47,21 +49,29 @@ const Footer = () => {
 
           {/* Company Column */}
           <div>
-            <h4 className="text-xl font-bold mb-6">Company</h4>
-            <ul className="space-y-4 text-gray-400 text-sm">
-              <li className="hover:text-blue-500 cursor-pointer transition-colors">About</li>
-              <li className="hover:text-blue-500 cursor-pointer transition-colors">Team</li>
-              <li className="hover:text-blue-500 cursor-pointer transition-colors">FAQs</li>
-            </ul>
-          </div>
+  <h4 className="text-xl font-bold mb-6">Company</h4>
+  <ul className="space-y-4 text-gray-400 text-sm">
+    <li className="hover:text-blue-500 cursor-pointer transition-colors">
+      <a href="/company/about">About</a>
+    </li>
+    <li className="hover:text-blue-500 cursor-pointer transition-colors">
+      <a href="/company/blogs">Blogs</a>
+    </li>
+    <li className="hover:text-blue-500 cursor-pointer transition-colors">
+      <a href="/faq">FAQs</a>
+    </li>
+  </ul>
+</div>
 
           {/* Join Us Column */}
           <div>
             <h4 className="text-xl font-bold mb-6">Join us</h4>
-            <p className="text-gray-400 text-sm mb-6 cursor-pointer hover:text-blue-500 transition-colors">Careers</p>
-            <button className="bg-blue-600 text-white text-xs font-bold py-3 px-6 rounded hover:bg-blue-700 transition-all">
-              Contact us
-            </button>
+          
+           <a href="/contact" className="inline-block">
+  <button className="bg-blue-600 text-white text-xs font-bold py-3 px-6 rounded hover:bg-blue-700 transition-all">
+    Contact us
+  </button>
+</a>
           </div>
         </div>
 
@@ -79,11 +89,11 @@ const Footer = () => {
           {/* Social Icons (Blue Circle Style) */}
           <div className="flex gap-3">
             {[
-              { Icon: Linkedin, link: '#' },
-              { Icon: Facebook, link: '#' },
-              { Icon: Github, link: '#' },
-              { Icon: Instagram, link: '#' },
-              { Icon: Globe, link: '#' }
+              { Icon: Linkedin, link: 'https://www.linkedin.com/company/aiverse-pk/about/' },
+              { Icon: Facebook, link: 'https://www.facebook.com/people/Aiversepk/61583308357755/' },
+          
+              { Icon: Instagram, link: 'instagram.com/aiverse.pk/' },
+          
             ].map((social, idx) => (
               <a 
                 key={idx} 

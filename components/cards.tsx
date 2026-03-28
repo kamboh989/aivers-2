@@ -89,7 +89,7 @@ const RecognitionGrid = () => {
             {/* Career card piche ke sections recreation (images remove) */}
             <div className="w-full h-1/2 bg-[#333333] rounded-2xl flex items-center justify-center border border-gray-700">
                {/* Central Button */}
-               <a href="#" className="inline-block bg-white text-black px-8 py-3 rounded-full text-base font-bold shadow-lg hover:bg-gray-100 transition duration-300">
+               <a href="/contact" className="inline-block bg-white text-black px-8 py-3 rounded-full text-base font-bold shadow-lg hover:bg-gray-100 transition duration-300">
                  Join Our Visionary Team
                </a>
             </div>

@@ -18,9 +18,11 @@ export default function TeamExperienceSection() {
         </p>
 
         {/* Primary Blue Button */}
-        <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-md transition-all duration-300 shadow-md">
-          Meet the team
-        </button>
+       <a href="/contact" className="inline-block">
+  <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-md transition-all duration-300 shadow-md">
+    Meet the team
+  </button>
+</a>
       </div>
     </section>
   );

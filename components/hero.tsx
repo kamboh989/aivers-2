@@ -23,12 +23,12 @@ const HeroSection = () => {
           
           {/* Buttons spacing optimized */}
           <div className="mt-8 flex flex-wrap gap-3">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-base hover:bg-blue-700 transition shadow-sm">
-              Schedule a Free Consultation
-            </button>
-            <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-md font-semibold text-base hover:bg-blue-50 transition">
-              Services
-            </button>
+            <a href="/contact" className="inline-block">
+  <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-base hover:bg-blue-700 transition shadow-sm">
+    Schedule a Free Consultation
+  </button>
+</a>
+           
           </div>
         </div>
 

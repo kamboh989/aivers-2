@@ -34,9 +34,11 @@ const TechPlatforms = () => {
           </p>
           
           <div className="mt-10">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-md font-bold text-base hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
-              View All Technologies
-            </button>
+          <a href="/company/about" className="inline-block">
+  <button className="bg-blue-600 text-white px-8 py-3 rounded-md font-bold text-base hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+    View All Technologies
+  </button>
+</a>
           </div>
         </div>
 
